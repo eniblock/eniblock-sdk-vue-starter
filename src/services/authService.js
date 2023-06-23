@@ -4,11 +4,10 @@ class AuthService {
     oauthClient;
 
     constructor() {
-        const AUTH_SDK_URL = 'https://auth.sdk.eniblock.com';
         this.oauthClient = new OAuth2AuthCodePkceClient({
             scopes: ['openid', 'email', 'profile', 'eniblock', 'offline_access'],
-            authorizationUrl: `${AUTH_SDK_URL}/oauth2/auth`,
-            tokenUrl: `${AUTH_SDK_URL}/oauth2/token`,
+            authorizationUrl: `${process.env.AUTH_SDK_URL}/oauth2/auth`,
+            tokenUrl: `${process.env.AUTH_SDK_URL}/oauth2/token`,
             clientId: process.env.AUTH_CLIENT_ID,
             redirectUrl: process.env.AUTH_REDIRECT_URI,
             storeRefreshToken: true, // Be careful with this option
