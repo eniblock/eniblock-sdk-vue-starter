@@ -14,7 +14,7 @@ module.exports = defineConfig({
     },
     configureWebpack: {
         plugins: [
-            new EnvironmentPlugin(['PROVIDER_URL', 'CONTRACT_ADDRESS', 'AUTH_REDIRECT_URI', 'AUTH_CLIENT_ID']),
+            new EnvironmentPlugin(['AUTH_REDIRECT_URI', 'AUTH_CLIENT_ID', 'AUTH_SDK_URL']),
             new NodePolyfillPlugin()],
         resolve: {
             extensions: ['.ts', '.js'],

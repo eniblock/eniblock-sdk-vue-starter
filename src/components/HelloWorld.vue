@@ -78,20 +78,6 @@ export default {
       return authService.isLoggedIn();
     }
   },
-  async created() {
-    console.log(this.$route);
-    if (this.$route.path === '/check') {
-      console.log('Check code...');
-      authService.receiveCode().then(() => {
-        authService.getTokens().then(tokens => {
-          console.log(`Get tokens:`);
-          console.log(tokens);
-          console.log('Refresh home page');
-          this.$router.push('/');
-        });
-      });
-    }
-  },
   async beforeMount() {
     if (authService.isLoggedIn()) {
       console.log('Logged in');
