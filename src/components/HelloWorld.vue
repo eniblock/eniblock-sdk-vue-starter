@@ -6,7 +6,7 @@
       check out the
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
     </p>
-    <button v-on:click="login" v-if="!isLoggedIn()">Login to create a wallet</button>
+    <button v-on:click="login" v-if="!isLoggedIn()" style="font-size: 32px;">Click here to create a wallet</button>
     <p v-if="isLoggedIn()">
       Your wallet and your account are instantiated<br>
       Your public key : {{ publicKey }}<br>
@@ -54,8 +54,8 @@ export default {
     return {
       sdk: new Eniblock({
         authConfig: {
-          clientId: process.env.AUTH_CLIENT_ID,
-          redirectUrl: process.env.AUTH_REDIRECT_URI,
+          clientId: process.env.ENIBLOCK_AUTH_CLIENT_ID,
+          redirectUrl: process.env.ENIBLOCK_AUTH_REDIRECT_URI,
         },
         tssConfig: {
           kmsUrl: "https://sdk.eniblock.com",

@@ -14,7 +14,7 @@ module.exports = defineConfig({
     },
     configureWebpack: {
         plugins: [
-            new EnvironmentPlugin(['AUTH_REDIRECT_URI', 'AUTH_CLIENT_ID', 'AUTH_SDK_URL']),
+            new EnvironmentPlugin(['ENIBLOCK_AUTH_REDIRECT_URI', 'ENIBLOCK_AUTH_CLIENT_ID', 'ENIBLOCK_AUTH_SDK_URL']),
             new NodePolyfillPlugin()],
         resolve: {
             extensions: ['.ts', '.js'],

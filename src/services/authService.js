@@ -6,10 +6,10 @@ class AuthService {
     constructor() {
         this.oauthClient = new OAuth2AuthCodePkceClient({
             scopes: ['openid', 'email', 'profile', 'eniblock', 'offline_access'],
-            authorizationUrl: `${process.env.AUTH_SDK_URL}/oauth2/auth`,
-            tokenUrl: `${process.env.AUTH_SDK_URL}/oauth2/token`,
-            clientId: process.env.AUTH_CLIENT_ID,
-            redirectUrl: process.env.AUTH_REDIRECT_URI,
+            authorizationUrl: `${process.env.ENIBLOCK_AUTH_SDK_URL}/oauth2/auth`,
+            tokenUrl: `${process.env.ENIBLOCK_AUTH_SDK_URL}/oauth2/token`,
+            clientId: process.env.ENIBLOCK_AUTH_CLIENT_ID,
+            redirectUrl: process.env.ENIBLOCK_AUTH_REDIRECT_URI,
             storeRefreshToken: true, // Be careful with this option
             extraAuthorizationParams: {audience: 'https://sdk.eniblock.com'},
             /* onAccessTokenExpiry() {
