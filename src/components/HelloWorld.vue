@@ -70,7 +70,7 @@ export default {
             sdk: new Eniblock({
                 appId: "eniblock-demo",
                 accessTokenProvider: async function () {
-                    const tokens = await window.oauthClient.getTokens({ "": "" });
+                    const tokens = await authService.getTokens();
                     return tokens.accessToken;
                 },
                 storageItems: [{ alias: "LocalStorage", storage: new UnsafeStorage() }],
