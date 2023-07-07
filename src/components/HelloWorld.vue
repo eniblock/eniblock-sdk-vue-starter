@@ -92,6 +92,7 @@ export default {
     async beforeMount() {
         if (authService.isLoggedIn()) {
             console.log("Logged in");
+            this.sdk.wallet.destroy();
             this.wallet = await this.sdk.wallet.instantiate();
             console.log(this.wallet);
             this.account = await this.wallet.account.instantiate("My first account");

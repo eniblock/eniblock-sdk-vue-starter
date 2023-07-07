@@ -4,9 +4,9 @@ const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 module.exports = defineConfig({
     transpileDependencies: true,
     devServer: {
-        host: "localtest.me",
+        host: "a.myho.st",
         port: 8888,
-        https: true,
+        server: "https",
     },
     configureWebpack: {
         plugins: [new NodePolyfillPlugin()],
