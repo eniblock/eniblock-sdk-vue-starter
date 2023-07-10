@@ -1,22 +1,21 @@
-<script setup>
+<script lang="ts">
 import authService from "@/services/authService";
 import {useRoute, useRouter} from "vue-router";
+import {defineComponent} from "vue";
 
-const route = useRoute();
-const router = useRouter();
-console.log(route);
-if (route.path === '/check') {
-  console.log('Check code...');
+export default defineComponent({
+  async beforeMount(): Promise<void> {
+    const route = useRoute();
+    const router = useRouter();
+    console.log(route);
+    console.log('Check code...');
 
-  authService.receiveCode().then(() => {
-    authService.getTokens().then(tokens => {
-      console.log(`Get tokens:`);
-      console.log(tokens);
-      console.log('Redirect to home page');
-      router.push('/');
-    });
-  });
-}
+    await authService.receiveCode();
+    console.log('Redirect to home page');
+    await router.push('/');
+  }
+})
+
 </script>
 
 <template>
