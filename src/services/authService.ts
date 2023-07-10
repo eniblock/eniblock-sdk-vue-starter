@@ -46,6 +46,7 @@ class AuthService {
             storageItems: [{alias: "UnsafeStorage", storage: new UnsafeStorage()}],
         });
         await sdk.wallet.destroy();
+        console.warn('Your local Eniblock SDK Wallet is destroyed.');
         localStorage.clear();
     }
 
