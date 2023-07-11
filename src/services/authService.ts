@@ -68,7 +68,7 @@ class AuthService {
     }
 
     // Method to exchange authorization code for access token
-    async getToken() {
+    private async getToken() {
         try {
             const tokenResponse = await axios.post(`${oauth2SdkUrl}/oauth2/token`, {
                 client_id: clientId,
