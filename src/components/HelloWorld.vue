@@ -76,6 +76,9 @@ export default defineComponent({
         accessTokenProvider: () => Promise.resolve(localStorage.getItem('starter_sdk_vue_access_token') ?? ''),
         storageItems: [{alias: "LocalStorage", storage: new UnsafeStorage()}],
       });
+      if (!localStorage.getItem('share-ECDSA')) {
+        sdk.wallet.destroy();
+      }
       const wallet = await sdk.wallet.instantiate();
       console.log(wallet);
       const account = await wallet.account.instantiate('My first account');
