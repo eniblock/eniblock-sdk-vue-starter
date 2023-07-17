@@ -11,7 +11,7 @@
       Your wallet and your account are instantiated<br>
       Your public key : {{ publicKey }}<br>
       Your address : {{ address }}<br>
-      You can check your console to see the detail of these objects.
+      You can check your console to see the detail of these objects.<br>
       <button v-on:click="logout">Logout</button>
     </p>
     <h3>Installed CLI Plugins</h3>
