@@ -4,7 +4,7 @@ import { Eniblock, UnsafeStorage } from "@eniblock/sdk";
 
 const redirectUri = "https://a.myho.st:8888/check";
 const clientId = "W4JkWYy4Qy1PogYmwOBt9I3HhQlzqD2m";
-const oauth2SdkUrl = "https://eniblock-sdk-demo.eu.auth0.com";
+const oauth2SdkUrl = "https://auth.demo.eniblock.com";
 
 /**
  * Here is an implementation of the Authorization code flow as shown here https://www.ory.sh/docs/oauth2-oidc/authorization-code-flow.
