@@ -3,7 +3,7 @@ import axios from "axios";
 import { Eniblock, UnsafeStorage } from "@eniblock/sdk";
 
 const redirectUri = "https://a.myho.st:8888/check";
-const clientId = "W4JkWYy4Qy1PogYmwOBt9I3HhQlzqD2m";
+const clientId = "W4JkWYy4Qy1PogYmwOBt9I3HhQlzqD2m"; // gitleaks:allow
 const oauth2SdkUrl = "https://auth.demo.eniblock.com";
 
 /**
