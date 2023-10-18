@@ -41,8 +41,6 @@ class AuthService {
         const authorizationUrl = `${OAUTH2_DOMAIN}/authorize?${encodedParameters}`;
 
         window.location.replace(authorizationUrl);
-
-        window.location.replace(authorizationUrl);
     }
 
     // Method to handle logout
