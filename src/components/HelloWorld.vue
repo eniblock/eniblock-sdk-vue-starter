@@ -74,7 +74,7 @@ export default defineComponent({
       const sdk = new Eniblock({
         appId: "eniblock-demo",
         accessTokenProvider: () => Promise.resolve(localStorage.getItem('starter_sdk_vue_access_token') ?? ''),
-        storageItems: [{alias: "LocalStorage", storage: new UnsafeStorage()}],
+        storage: new UnsafeStorage(),
       });
       if (!localStorage.getItem(`share-${sdk.appId}-ECDSA`)) {
         sdk.wallet.destroy();
