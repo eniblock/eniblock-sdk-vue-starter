@@ -79,11 +79,9 @@ export default defineComponent({
       if (!localStorage.getItem(`share-${sdk.appId}-ECDSA`)) {
         sdk.wallet.destroy();
       }
-      const wallet = await sdk.wallet.instantiate();
-      console.log(wallet);
-      const account = await wallet.account.instantiate('My first account');
+      const account = await sdk.account.instantiate('My first account');
       console.log(account);
-      this.publicKey = await account.getPublicKey();
+      this.publicKey = account.getPublicKey();
       this.address = await account.getAddress();
     }
   }
