@@ -1,23 +1,3 @@
-<script lang="ts">
-import authService from "@/services/authService";
-import {useRoute, useRouter} from "vue-router";
-import {defineComponent} from "vue";
-
-export default defineComponent({
-  async beforeMount(): Promise<void> {
-    const route = useRoute();
-    const router = useRouter();
-    console.log(route);
-    console.log('Check code...');
-
-    await authService.receiveCode();
-    console.log('Redirect to home page');
-    await router.push('/');
-  }
-})
-
-</script>
-
 <template>
   <div class="sk-chase">
     <div class="sk-chase-dot"></div>
@@ -28,6 +8,30 @@ export default defineComponent({
     <div class="sk-chase-dot"></div>
   </div>
 </template>
+
+<script lang="ts">
+import authService from "@/services/authService";
+import { defineComponent, onMounted } from "vue";
+import { useRoute, useRouter } from "vue-router";
+
+export default defineComponent({
+    name: 'checkComponent',
+
+    setup() {
+        const route = useRoute();
+        const router = useRouter();
+
+        onMounted(async () => {
+            console.log('Check code...');
+            console.log(route);
+            await authService.receiveCode();
+            console.log('Redirect to home page');
+            await router.push('/');//
+        });
+    }
+})
+
+</script>
 
 <style scoped>
 .sk-chase {

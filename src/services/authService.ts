@@ -1,6 +1,6 @@
 import { generateChallenge, generateVerifier } from "@/utils/pkce";
-import axios from "axios";
 import { Eniblock, UnsafeStorage } from "@eniblock/sdk";
+import axios from "axios";
 
 const OAUTH2_ALLOWED_CALLBACK_URL = "https://a.myho.st:8888/check";
 const OAUTH2_CLIENTID = "W4JkWYy4Qy1PogYmwOBt9I3HhQlzqD2m"; // gitleaks:allow
@@ -40,7 +40,7 @@ class AuthService {
 
         const authorizationUrl = `${OAUTH2_DOMAIN}/authorize?${encodedParameters}`;
 
-        window.location.replace(authorizationUrl);
+        window.location.href = authorizationUrl;
     }
 
     // Method to handle logout
