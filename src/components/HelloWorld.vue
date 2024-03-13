@@ -40,9 +40,9 @@
 </template>
 
 <script lang="ts">
-import {Eniblock, UnsafeStorage} from "@eniblock/sdk";
 import authService from "@/services/authService";
-import {defineComponent} from "vue";
+import { Eniblock, UnsafeStorage } from "@eniblock/sdk";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   props: {
@@ -69,20 +69,20 @@ export default defineComponent({
 
   async beforeMount() {
     this.isLoggedIn = authService.isLoggedIn();
-    if (authService.isLoggedIn()) {
-      console.log('Logged in');
-      const sdk = new Eniblock({
-        appId: "eniblock-demo",
-        accessTokenProvider: () => Promise.resolve(localStorage.getItem('starter_sdk_vue_access_token') ?? ''),
-        storage: new UnsafeStorage(),
-      });
-      if (!localStorage.getItem(`share-${sdk.appId}-ECDSA`)) {
-        sdk.wallet.destroy();
-      }
-      const account = await sdk.account.instantiate('My first account');
-      console.log(account);
-      this.publicKey = account.getPublicKey();
-      this.address = await account.getAddress();
+    if (this.isLoggedIn) {
+        console.log('Logged in');
+        const sdk = new Eniblock({
+            appId: "eniblock-demo",
+            accessTokenProvider: () => Promise.resolve(localStorage.getItem('starter_sdk_vue_access_token') ?? ''),
+            storage: new UnsafeStorage(),
+        });
+        if (!localStorage.getItem(`share-${sdk.appId}-ECDSA`)) {
+            await sdk.wallet.destroy();
+        }
+        const account = await sdk.account.instantiate('My first account');
+        console.log(account);
+        this.publicKey = account.getPublicKey();
+        this.address = await account.getAddress();
     }
   }
 })

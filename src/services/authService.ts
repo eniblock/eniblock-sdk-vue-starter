@@ -123,7 +123,7 @@ class AuthService {
     }
 
     // Method to fetch user information using the access token
-    getUserInfo(accessToken: string) {
+    private getUserInfo(accessToken: string) {
         axios
             .get(`${OAUTH2_DOMAIN}/userinfo`, {
                 headers: { Authorization: `Bearer ${accessToken}` },
